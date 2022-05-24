@@ -10,6 +10,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.cardlydemo.route.Route
+import com.example.cardlydemo.route.Router
 import com.example.cardlydemo.ui.theme.CardlyDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +25,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    val navController = rememberNavController()
+
+                    Router(
+                        navController = navController,
+                        startDestination = Route.SplashScreenRoute.key
+                    )
                 }
             }
         }
